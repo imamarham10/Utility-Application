@@ -419,36 +419,44 @@ function rgbHexConverter()
 function unitConverter()
 {
   console.log(chalk.yellowBright.bold(`\n----UNIT CONVERTER UTILITY APP----\n`));
-  console.log(("What do you want ? \n\n\n[1] Celcius to Kelvin \n\n[2] Celcius to Fahrenheit\n\n[3] Kelvin to Fahrenheit\n\n[4] Exit\n\n"));
-  let option = parseInt(readlineSync.question(chalk.red(`Enter you choice. Press (1/2/3/4)\n`)));
-  while(option!=4)
+  console.log(("What do you want ? \n\n\n[1] Pound to Ounce \n\n[2] Pound to Carrat\n\n[3] Ounce to Carrat\n\n[4] Celcius to Fahrenheit\n\n[5] Fahrenheit to Celcius\n\n[6] Exit\n\n"));
+  let option = parseInt(readlineSync.question(chalk.red(`Enter you choice. Press (1/2/3/4/5/6)\n`)));
+  while(option!=6)
   {
     switch(option)
     {
       case 1 :
-      console.log(chalk.yellowBright.bold(`\n----CELCIUS TO KELVIN CONVERTER----\n`));
-      let celciusTemp = readlineSync.question(`Enter the temperature in celcius.\n`);
-      let kelvinTemp =  (celciusTemp+273.5);
-      console.log(kelvinTemp);
+      console.log(chalk.yellowBright.bold(`\n----POUND TO OUNCE CONVERTER----\n`));
+      let poundWeight = readlineSync.question(`Enter the weight in pound.\n`);
+      let ounceWeight =  (poundWeight*16);
+      console.log(ounceWeight);
       break;
       case 2 :
-      console.log(chalk.yellowBright.bold(`\n----CELCIUS TO FAHRENHEIT CONVERTER----\n`));
-      let celcius = readlineSync.question(`Enter the temperature in celcius.\n`);
-      let fahrenheitTemp = ((celcius * (9/5)) + 32);
-      console.log(fahrenheitTemp);
+      console.log(chalk.yellowBright.bold(`\n----POUND TO CARRAT CONVERTER----\n`));
+      let pound = readlineSync.question(`Enter the weight in pound.\n`);
+      let carratWeight = pound*2267.96;
+      console.log(carratWeight);
       break;
       case 3 :
-      console.log(chalk.yellowBright.bold(`\n----KELVIN TO FAHRENHEIT CONVERTER\n`));
-      let kelvin = readlineSync.question(`Enter the temperature in kelvin.\n`);
-      let fahrenheit = ((kelvin - 273.15) * (9/5) + 32);
-      console.log(fahrenheit);
+      console.log(chalk.yellowBright.bold(`\n----OUNCE TO CARRAT CONVERTER\n`));
+      let ounce = readlineSync.question(`Enter the weight in ounce.\n`);
+      let carrat = ounce*141.748;
+      console.log(carrat);
       break;
+      case 4 :
+      console.log(chalk.yellowBright.bold(`\n----CELCIUS TO FAHRENHEIT CONVERTER----\n`));
+      const val = readlineSync.question(`Enter temperature in celcius.\n`);
+      console.log((val * 9 / 5 + 32).toString());
+      case 5 :
+      console.log(chalk.yellowBright.bold(`\n----FAHRENHEIT TO CELCIUS CONVERTER----\n`));
+      const temp = readlineSync.question(`Enter temperature in fahrenheit.\n`);
+      console.log(((temp - 32) * 5 / 9).toString());
       default:
         console.log(chalk.green.bold("You have entered the wrong choice, Try again!!"));
         break;
     }
 
-    if(option!==4)
+    if(option!==6)
     {
       const choice = parseInt(readlineSync.question(chalk.green.bold("Do you want to continue ? Press (1 for yes/2 for no) \n")));
       if(choice===1)
@@ -457,7 +465,7 @@ function unitConverter()
       }
       else if(choice===2)
       {
-        option = 4;
+        option = 6;
       }
     }
   }
